@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Временные файлы анализа (можно раскомментировать, если не хотите их отслеживать)
+# all_anomalies_by_lines.txt
+# analysis_output.txt
+# anomalies_report.txt
+# summary_report.txt
+
