@@ -4,174 +4,104 @@
 
 1. КРИТИЧНЫЕ АНОМАЛИИ: ТОКЕНЫ (base64/непонятные строки)
 --------------------------------------------------------------------------------
-Найдено файлов с токенами: 69
+Найдено файлов с токенами: 13
 
-  • 1922_Itin_Strana_Gonguri.txt: 277 токенов
-  • 1963_Efremov_Lezvie_britvy.txt: 84 токенов
-  • 2016_Nag_Fraer_v_tsifre.txt: 12 токенов
-  • 2015_Luginin_Nanopunk.txt: 10 токенов
-  • 1998_Lukyanenko_Nochnoy_dozor.txt: 8 токенов
-  • 2002_Moshkov_Pobeda_uskolzaet.txt: 8 токенов
-  • 2016_Yemets_Mefodiy_Buslaev_Samy_luchshiy_vrag.txt: 7 токенов
-  • 1962_Krapivin_Ya_idu_vstrechat_brata.txt: 6 токенов
-  • 1978_Krapivin_V_noch_bolshogo_priliva.txt: 5 токенов
-  • 1987_Krapivin_Oranzhevyj_portret_s_krapinkami.txt: 5 токенов
-  • 1988_Krapivin_Vystrel_s_monitora.txt: 5 токенов
-  • 1989_Krapivin_Gusi-gusi,_ga-ga-ga....txt: 5 токенов
-  • 1990_Krapivin_Krik_petukha.txt: 5 токенов
-  • 1990_Krapivin_Zastava_na_Yakornom_Pole.txt: 5 токенов
-  • 1991_Krapivin_Belyj_sharik_matrosa_Vilsona.txt: 5 токенов
-  • 1992_Krapivin_Loczman.txt: 5 токенов
-  • 1993_Krapivin_Skazki_o_rybakakh_i_rybkakh.txt: 5 токенов
-  • 1994_Krapivin_Dyrchataya_luna.txt: 5 токенов
-  • 1996_Krapivin_Vzryv_Generalnogo_shtaba.txt: 5 токенов
-  • 2007_Zhakov_Levitsky_Psychokvant.txt: 4 токенов
-  • 2012_Chubarian_Khakeri.txt: 4 токенов
-  • 1959_Martinov_Zvezdoplavateli.txt: 3 токенов
-  • 1962_Strugatskie_Mobi_Dik.txt: 3 токенов
-  • 1962_Strugatskie_Mobi_Dik.txt.txt: 3 токенов
-  • 1963_Strugatskie_Dalekaya_raduga.txt: 3 токенов
-  • 2003_Chubarian_Igri_v_zhizn.txt: 3 токенов
-  • 2005_Lukyanenko_Posledniy_dozor.txt: 3 токенов
-  • 2006_Yemets_Mefodiy_Buslaev_Taynaya_magia_Depresnyaka.txt: 3 токенов
-  • 2010_Pelevin_Zenitnie_kodeksi_Al_Efesbi.txt: 3 токенов
-  • 2013_Sorokin_Telluriya.txt: 3 токенов
-  • 1992_Rybakov_Gravilet_Cesarevich.txt: 2 токенов
-  • 2008_Sorokin_Saharnyy_kreml.txt: 2 токенов
-  • 2016_Raspopov_God_Vay.txt: 2 токенов
-  • 1927_Bulgakov_Rokovye yaitsa.txt: 1 токенов
-  • 1959_Adamov_Tayna_2_okeanov.txt: 1 токенов
-  • 1961_Martinov_Vstretcha_tcherez_veka(1).txt: 1 токенов
-  • 1961_Martinov_Vstretcha_tcherez_veka.txt: 1 токенов
-  • 1965_Larionova_Leopard_s_vershiny_Kilimandzharo.txt: 1 токенов
-  • 1969_Strugatskie_Obitaemiy_ostrov.txt: 1 токенов
-  • 1972_Bulychev_Velikiy duh i begletsy.txt: 1 токенов
-  • 1976_Strugatskie_Za_milliard_let_do_kontsa_sveta.txt: 1 токенов
-  • 1980_ Bulychev_Beloye platye Zolushki.txt: 1 токенов
-  • 1983_Bulychev_Trinadtsat let puti.txt: 1 токенов
-  • 1986_Larionova_Labirint_dlya_trogloditov.txt: 1 токенов
-  • 1987_Suhanov_Avatara.txt: 1 токенов
-  • 1988_Bulychev_Posyolok.txt: 1 токенов
-  • 1990_Bulychev_Podzemelye vedm.txt: 1 токенов
-  • 1990_SHalimov_Musorshchiki_planety.txt: 1 токенов
-  • 1991_Larionova_Formula_Kontakta.txt: 1 токенов
-  • 1993_ Bulychev_Lyubimets.txt: 1 токенов
-  • 1994_Bulychev_Pohishchenie Tesseya.txt: 1 токенов
-  • 1994_Bulychev_Predskazatel proshlogo.txt: 1 токенов
-  • 1995_Bulychev_Na polputi s obryva.txt: 1 токенов
-  • 1995_Krapivin_Leto_konchitsya_ne_skoro.txt: 1 токенов
-  • 1996_Rybakov_Derni_za_verevochku.txt: 1 токенов
-  • 1998_Kaganov_Komanda_D.txt: 1 токенов
-  • 1998_Lukin_Zona_spravedlivosti.txt: 1 токенов
-  • 2000_Zorich_Poslednii_avatar.txt: 1 токенов
-  • 2002_Kaganov_Harisma.txt: 1 токенов
-  • 2002_Yemets_Tanya_Grotter_i_magicheskiy_kontrabas.txt: 1 токенов
-  • 2003_Gulyakovskij_chuzhaya_planeta.txt: 1 токенов
-  • 2004_Kaganov_Den_akademika_Pohelya.txt: 1 токенов
-  • 2005_Zhakov_Iz glubin.txt: 1 токенов
-  • 2007_Yemets_Mefodiy_Buslaev_Pervy_eydos.txt: 1 токенов
-  • 2007_Yemets_Mefodiy_Buslaev_Svetlye_krylya_dlya_temnogo_strazha.txt: 1 токенов
-  • 2008_Akhmanov_Zaklinatel_dzhinnov.txt: 1 токенов
-  • 2008_Yemets_Mefodiy_Buslaev_Lestnitsa_v_Edem.txt: 1 токенов
-  • 2015_Yemets_Mefodiy_Buslaev_Oshibka_grifona.txt: 1 токенов
-  • 2018_Grishin_Taina_pustoshei.txt: 1 токенов
+  • 1963_Efremov_Lezvie britvy.txt: 4968 токенов
+  • 1922_Itin_Strana Gonguri.txt: 2538 токенов
+  • 1978_Krapivin_V noch bolshogo priliva.txt: 1 токенов
+  • 1987_Krapivin_Oranzhevyj portret s krapinkami.txt: 1 токенов
+  • 1988_Krapivin_Vystrel s monitora.txt: 1 токенов
+  • 1989_Krapivin_Gusi-gusi, ga-ga-ga....txt: 1 токенов
+  • 1990_Krapivin_Krik petukha.txt: 1 токенов
+  • 1990_Krapivin_Zastava na Yakornom Pole.txt: 1 токенов
+  • 1991_Krapivin_Belyj sharik matrosa Vilsona.txt: 1 токенов
+  • 1992_Krapivin_Loczman.txt: 1 токенов
+  • 1993_Krapivin_Skazki o rybakakh i rybkakh.txt: 1 токенов
+  • 1994_Krapivin_Dyrchataya luna.txt: 1 токенов
+  • 1995_Krapivin_Leto konchitsya ne skoro.txt: 1 токенов
 
 2. МНОЖЕСТВЕННЫЕ НЕОБЫЧНЫЕ СИМВОЛЫ
 --------------------------------------------------------------------------------
-Найдено файлов: 34
+Найдено файлов: 31
 
-  • analysis_output.txt: 175 случаев
-  • 2002_Yemets_Tanya_Grotter_i_magicheskiy_kontrabas.txt: 35 случаев
-  • 2008_Assiriyskie_tanki_u_vrat_Memfisa.txt: 28 случаев
-  • 1984_Strugatskie_Volny_gasiat_veter.txt: 19 случаев
-  • 1963_Efremov_Lezvie_britvy.txt: 18 случаев
-  • 2008_Akhmanov_Zaklinatel_dzhinnov.txt: 18 случаев
-  • 2006_Yemets_Mefodiy_Buslaev_Mest_valkiriy.txt: 12 случаев
-  • 2016_Nag_Fraer_v_tsifre.txt: 9 случаев
-  • 2016_Livantsov_Kapitan_Don-At.txt: 8 случаев
-  • 2016_Yemets_Mefodiy_Buslaev_Samy_luchshiy_vrag.txt: 7 случаев
-  • 1960_Zabelin_Poyas_zhizni.txt: 4 случаев
-  • 1963_Varshavskij_Molekulyarnoe_kafe.txt: 3 случаев
-  • 1922_Itin_Strana_Gonguri.txt: 2 случаев
-  • 1962_Krapivin_Ya_idu_vstrechat_brata.txt: 2 случаев
-  • 1978_Krapivin_V_noch_bolshogo_priliva.txt: 2 случаев
-  • 1987_Krapivin_Oranzhevyj_portret_s_krapinkami.txt: 2 случаев
-  • 1988_Krapivin_Vystrel_s_monitora.txt: 2 случаев
-  • 1989_Krapivin_Gusi-gusi,_ga-ga-ga....txt: 2 случаев
-  • 1990_Krapivin_Krik_petukha.txt: 2 случаев
-  • 1990_Krapivin_Zastava_na_Yakornom_Pole.txt: 2 случаев
-  • 1991_Krapivin_Belyj_sharik_matrosa_Vilsona.txt: 2 случаев
-  • 1992_Krapivin_Loczman.txt: 2 случаев
-  • 1993_Krapivin_Skazki_o_rybakakh_i_rybkakh.txt: 2 случаев
-  • 1994_Krapivin_Dyrchataya_luna.txt: 2 случаев
-  • 1995_Krapivin_Leto_konchitsya_ne_skoro.txt: 2 случаев
-  • 1996_Krapivin_Vzryv_Generalnogo_shtaba.txt: 2 случаев
-  • 1998_Kaganov_Komanda_D.txt: 2 случаев
-  • 1978_Pavlov_Lunnaya_raduga.txt: 1 случаев
-  • 1979_Gulyakovskij_Sezon_tumanov.txt: 1 случаев
+  • 2002_Yemets_Tanya Grotter i magicheskiy kontrabas.txt: 35 случаев
+  • 2008_Assiriyskie_tanki u vrat Memfisa.txt: 28 случаев
+  • 1984_Strugatskie_Volny gasiat veter.txt: 19 случаев
+  • 2008_Akhmanov_Zaklinatel dzhinnov.txt: 18 случаев
+  • 2006_Yemets_Mefodiy Buslaev Mest valkiriy.txt: 12 случаев
+  • 2016_Nag_Fraer v tsifre.txt: 9 случаев
+  • 2016_Livantsov_Kapitan Don-At.txt: 8 случаев
+  • 2016_Yemets_Mefodiy Buslaev Samy luchshiy vrag.txt: 7 случаев
+  • 1960_Zabelin_Poyas zhizni.txt: 4 случаев
+  • 1963_Varshavskij_Molekulyarnoe kafe.txt: 3 случаев
+  • 1962_Krapivin_Ya idu vstrechat brata.txt: 2 случаев
+  • 1996_Krapivin_Vzryv Generalnogo shtaba.txt: 2 случаев
+  • 1998_Kaganov_Komanda D.txt: 2 случаев
+  • 1978_Krapivin_V noch bolshogo priliva.txt: 1 случаев
+  • 1978_Pavlov_Lunnaya raduga.txt: 1 случаев
+  • 1979_Gulyakovskij_Sezon tumanov.txt: 1 случаев
+  • 1987_Krapivin_Oranzhevyj portret s krapinkami.txt: 1 случаев
+  • 1988_Krapivin_Vystrel s monitora.txt: 1 случаев
+  • 1989_Krapivin_Gusi-gusi, ga-ga-ga....txt: 1 случаев
+  • 1990_Krapivin_Krik petukha.txt: 1 случаев
+  • 1990_Krapivin_Zastava na Yakornom Pole.txt: 1 случаев
+  • 1991_Krapivin_Belyj sharik matrosa Vilsona.txt: 1 случаев
+  • 1992_Krapivin_Loczman.txt: 1 случаев
+  • 1993_Krapivin_Skazki o rybakakh i rybkakh.txt: 1 случаев
+  • 1994_Krapivin_Dyrchataya luna.txt: 1 случаев
+  • 1995_Krapivin_Leto konchitsya ne skoro.txt: 1 случаев
   • 2004_Bachilo_Akademongorodok.txt: 1 случаев
   • 2012_Chubarian_Khakeri.txt: 1 случаев
-  • 2015_Starikov_Igra_v_zhizn.txt: 1 случаев
-  • 2016_Raspopov_God_Vay.txt: 1 случаев
+  • 2015_Starikov_Igra v zhizn.txt: 1 случаев
+  • 2016_Raspopov_God Vay.txt: 1 случаев
   • 2016_Shienkov_Antivirus.txt: 1 случаев
 
 3. ФАЙЛЫ С БОЛЬШИМ КОЛИЧЕСТВОМ НЕОБЫЧНЫХ СИМВОЛОВ (>100)
 --------------------------------------------------------------------------------
-Найдено файлов: 100
+Найдено файлов: 97
 
-  • 1963_Efremov_Lezvie_britvy.txt: 9376 случаев
-  • 1996_Lazarchuk_Opozdavshie_k_letu.txt: 6168 случаев
-  • 2009_Gorkavyy_Teoriya_katastrofy.txt: 4166 случаев
-  • analysis_output.txt: 3604 случаев
-  • 2010_Gorkavyy_Vozvrashchenie_astrovityanki.txt: 3557 случаев
-  • 1922_Itin_Strana_Gonguri.txt: 3554 случаев
-  • 1967_Varshavskij_Kontaktov_ne_budet.txt: 3433 случаев
-  • 2002_Kaganov_Harisma.txt: 3399 случаев
-  • 2004_Kaganov_Den_akademika_Pohelya.txt: 3236 случаев
+  • 1996_Lazarchuk_Opozdavshie k letu.txt: 6168 случаев
+  • 1963_Efremov_Lezvie britvy.txt: 4412 случаев
+  • 2009_Gorkavyy_Teoriya katastrofy.txt: 4166 случаев
+  • 2010_Gorkavyy_Vozvrashchenie astrovityanki.txt: 3557 случаев
+  • 1967_Varshavskij_Kontaktov ne budet.txt: 3432 случаев
+  • 2002_Kaganov_Harisma.txt: 3397 случаев
+  • 2004_Kaganov_Den akademika Pohelya.txt: 3236 случаев
   • 2008_Gorkavyy_Astrovityanka.txt: 3168 случаев
-  • 1965_Varshavskij_Pod_nogami_Zemlya.txt: 3046 случаев
-  • 1998_Kaganov_Komanda_D.txt: 2766 случаев
-  • 1988_Strugatskie_Grad_Obrechenniy.txt: 2637 случаев
-  • 1995_Gevorkyan_Vremena_negodyaev.txt: 2557 случаев
-  • 2015_Yemets_Mefodiy_Buslaev_Oshibka_grifona.txt: 2326 случаев
-  • 1972_Efremov_Tais_Afinskaya.txt: 2255 случаев
-  • 1959_Strugatskie_Strana_bogrovix_tuch.txt: 2192 случаев
-  • 2013_Yemets_Mefodiy_Buslaev_Kniga_semi_dorog.txt: 2067 случаев
-  • 2002_Krapivin_Strazha_lopukhastykh_ostrovov.txt: 2030 случаев
-  • 2009_Yemets_Mefodiy_Buslaev_Steklyanny_strazh.txt: 1928 случаев
-  ... и еще 80 файлов
+  • 1965_Varshavskij_Pod nogami Zemlya.txt: 3046 случаев
+  • 1998_Kaganov_Komanda D.txt: 2766 случаев
+  • 1988_Strugatskie_Grad Obrechenniy.txt: 2637 случаев
+  • 1995_Gevorkyan_Vremena negodyaev.txt: 2557 случаев
+  • 2015_Yemets_Mefodiy Buslaev Oshibka grifona.txt: 2326 случаев
+  • 1972_Efremov_Tais Afinskaya.txt: 2255 случаев
+  • 1959_Strugatskie_Strana bogrovix tuch.txt: 2192 случаев
+  • 2013_Yemets_Mefodiy Buslaev Kniga semi dorog.txt: 2067 случаев
+  • 2002_Krapivin_Strazha lopukhastykh ostrovov.txt: 2029 случаев
+  • 2009_Yemets_Mefodiy Buslaev Steklyanny strazh.txt: 1927 случаев
+  • 2008_Yemets_Mefodiy Buslaev Lestnitsa v Edem.txt: 1862 случаев
+  • 2009_Yemets_Mefodiy Buslaev Ozherelye driady.txt: 1818 случаев
+  ... и еще 77 файлов
 
 4. ФАЙЛЫ С БОЛЬШИМ КОЛИЧЕСТВОМ ЛАТИНИЦЫ (>50)
 --------------------------------------------------------------------------------
-Найдено файлов: 18
+Найдено файлов: 7
 
-  • 1963_Efremov_Lezvie_britvy.txt: 6380 случаев
-  • 1922_Itin_Strana_Gonguri.txt: 3721 случаев
-  • analysis_output.txt: 3135 случаев
-  • 1920_Zamyatin_My.txt: 176 случаев
-  • 1958_Efremov_Tumannost_Andromedy.txt: 171 случаев
-  • 1930_Palej_Planeta_Kim.txt: 145 случаев
-  • 2013_Sorokin_Telluriya.txt: 136 случаев
-  • 2002_Moshkov_Pobeda_uskolzaet.txt: 126 случаев
-  • 2000_Zorich_Poslednii_avatar.txt: 120 случаев
-  • 2010_Pelevin_Zenitnie_kodeksi_Al_Efesbi.txt: 99 случаев
-  • 2016_Nag_Fraer_v_tsifre.txt: 94 случаев
-  • 1926_Belyaev_Vlastelin mira.txt: 77 случаев
-  • 1965_Gurevich_My_iz_Solnechnoy_Sistemy.txt: 75 случаев
-  • 1924_Goncharov_Mezhplanetnyj_puteshestvennik.txt: 70 случаев
-  • 1980_Gurevich_Tempograd.txt: 58 случаев
-  • 1925_Goncharov_Vek_gigantov.txt: 55 случаев
-  • 1938_Lagin_Starik_Khottabich(1).txt: 55 случаев
-  • 1938_Lagin_Starik_Khottabich.txt: 55 случаев
+  • 1963_Efremov_Lezvie britvy.txt: 1295 случаев
+  • 1922_Itin_Strana Gonguri.txt: 1153 случаев
+  • 1958_Efremov_Tumannost Andromedy.txt: 152 случаев
+  • 2013_Sorokin_Telluriya.txt: 120 случаев
+  • 2002_Moshkov_Pobeda uskolzaet.txt: 82 случаев
+  • 2000_Zorich_Poslednii avatar.txt: 81 случаев
+  • 2010_Pelevin_Zenitnie kodeksi Al Efesbi.txt: 77 случаев
 
 ================================================================================
 ОБЩАЯ СТАТИСТИКА
 ================================================================================
-Всего файлов с аномалиями: 306
-Файлов с токенами: 69
-Файлов с множественными необычными символами: 34
-Файлов с большим количеством необычных символов: 100
-Файлов с большим количеством латиницы: 18
+Всего файлов с аномалиями: 281
+Файлов с токенами: 13
+Файлов с множественными необычными символами: 31
+Файлов с большим количеством необычных символов: 97
+Файлов с большим количеством латиницы: 7
 
 ПРИМЕЧАНИЕ:
 - Токены - это критичные аномалии (base64-строки, непонятные данные)

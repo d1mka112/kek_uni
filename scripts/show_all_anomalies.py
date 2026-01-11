@@ -99,12 +99,9 @@ def find_anomalies_in_file(filepath):
 
 def main():
     script_dir = Path(__file__).parent
-    txt_files = sorted(script_dir.glob('*.txt'))
-    
-    # Исключаем служебные файлы
-    exclude_files = {'find_anomalies.py', 'create_summary.py', 'show_all_anomalies.py',
-                     'anomalies_report.txt', 'summary_report.txt', 'analysis_output.txt'}
-    txt_files = [f for f in txt_files if f.name not in exclude_files]
+    # Файлы с текстами находятся в папке texts/ на уровень выше
+    texts_dir = script_dir.parent / 'texts'
+    txt_files = sorted(texts_dir.glob('*.txt'))
     
     print("="*80)
     print("ВСЕ АНОМАЛИИ С УКАЗАНИЕМ СТРОК")

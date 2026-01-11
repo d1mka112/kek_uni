@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 # Кириллица, цифры, основные знаки препинания, пробельные символы
-RUSSIAN_CHARS = set('АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя0123456789')
+RUSSIAN_CHARS = set('АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя0123456789')
 PUNCTUATION = set('.,;:!?-"()[]{}«»—–…')
 WHITESPACE = set(' \n\r\t')
 ALLOWED_CHARS = RUSSIAN_CHARS | PUNCTUATION | WHITESPACE
@@ -41,6 +41,39 @@ def is_likely_chapter_title(line):
     
     return False
 
+def is_base64_like(text):
+    """Проверяет, похож ли текст на base64 строку"""
+    if len(text) < 40:
+        return False
+    # Base64 содержит A-Z, a-z, 0-9, +, /, =
+    base64_chars = set('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=')
+    text_chars = set(text.strip())
+    if text_chars.issubset(base64_chars):
+        # Проверяем, что есть хотя бы один знак = или /, и достаточно много символов
+        if ('=' in text or '/' in text) and len(text.strip()) > 40:
+            return True
+    return False
+
+def is_normal_latin_usage(line):
+    """Проверяет, является ли латиница нормальным использованием (имена собственные, римские цифры)"""
+    stripped = line.strip()
+    
+    # Римские цифры (I, II, III, IV, V, X, L, C, D, M)
+    if re.match(r'^[IVXLCDM]+$', stripped, re.IGNORECASE):
+        return True
+    
+    # Короткие латинские слова в скобках (часто используются как пометки)
+    if re.match(r'^\([a-zA-Z]{1,4}\)$', stripped):
+        return True
+    
+    # Известные сокращения и аббревиатуры
+    common_abbrevs = {'ISBN', 'ISBN:', 'http', 'https', 'www', 'com', 'ru', 'org', 'net'}
+    words = re.findall(r'\b[A-Za-z]+\b', line)
+    if words and all(w.upper() in common_abbrevs or len(w) <= 3 for w in words):
+        return True
+    
+    return False
+
 def find_anomalies_in_line(line, line_num):
     """Находит аномалии в строке"""
     anomalies = []
@@ -49,6 +82,17 @@ def find_anomalies_in_line(line, line_num):
     if not line.strip() or is_likely_chapter_title(line):
         return anomalies
     
+    stripped = line.strip()
+    
+    # Проверка на base64-подобные строки (токены) - приоритетная проверка
+    if is_base64_like(stripped):
+        anomalies.append({
+            'type': 'token_like',
+            'line_num': line_num,
+            'line': stripped
+        })
+        return anomalies  # Если это токен, другие проверки не нужны
+    
     # Проверяем наличие недопустимых символов
     suspicious_chars = []
     for i, char in enumerate(line):
@@ -56,47 +100,44 @@ def find_anomalies_in_line(line, line_num):
             suspicious_chars.append((i, char, ord(char)))
     
     if suspicious_chars:
-        # Проверяем, не является ли это латиницей (которая может быть в именах собственных)
         has_russian = any(c in RUSSIAN_CHARS for c in line)
         
-        # Если в строке есть кириллица, но также есть латиница - это аномалия
         if has_russian:
+            # Проверяем на латиницу
             latin_chars = [(i, c) for i, c, _ in suspicious_chars if c.isalpha() and ord(c) < 128]
-            if latin_chars:
-                anomalies.append({
-                    'type': 'latin_in_russian',
-                    'line_num': line_num,
-                    'chars': latin_chars,
-                    'line': line.strip()[:200]  # Первые 200 символов
-                })
+            if latin_chars and not is_normal_latin_usage(line):
+                # Только если латиницы достаточно много (не единичные символы)
+                if len(latin_chars) > 3:
+                    anomalies.append({
+                        'type': 'latin_in_russian',
+                        'line_num': line_num,
+                        'chars': latin_chars[:10],  # Ограничиваем для вывода
+                        'line': stripped
+                    })
             
             # Другие подозрительные символы (не латиница, не кириллица)
             other_chars = [(i, c, hex(ord(c))) for i, c, code in suspicious_chars 
                           if not (c.isalpha() and ord(c) < 128)]
+            # Исключаем известные нормальные символы (тире, кавычки разных видов)
+            normal_symbols = set('—–…‹›‚„«»°№§')
+            other_chars = [(i, c, hex_val) for i, c, hex_val in other_chars if c not in normal_symbols]
+            
             if other_chars:
                 anomalies.append({
                     'type': 'unusual_symbols',
                     'line_num': line_num,
-                    'chars': other_chars,
-                    'line': line.strip()[:200]
+                    'chars': other_chars[:10],  # Ограничиваем для вывода
+                    'line': stripped
                 })
     
-    # Проверяем строки, которые содержат много латиницы без кириллицы (токены?)
-    if not any(c in RUSSIAN_CHARS for c in line) and line.strip():
-        latin_count = sum(1 for c in line if c.isalpha() and ord(c) < 128)
-        if latin_count > 10:  # Больше 10 латинских символов без кириллицы
-            anomalies.append({
-                'type': 'token_like',
-                'line_num': line_num,
-                'line': line.strip()[:200]
-            })
-    
     # Проверяем строки с множеством подряд идущих необычных символов
-    if re.search(r'[^\w\s\u0400-\u04FF.,;:!?\-"()\[\]{}«»—–…]{3,}', line):
+    # Но исключаем известные паттерны (тире, кавычки)
+    unusual_pattern = re.search(r'[^\w\s\u0400-\u04FF.,;:!?\-"()\[\]{}«»—–…°№§]{3,}', line)
+    if unusual_pattern:
         anomalies.append({
             'type': 'multiple_unusual_chars',
             'line_num': line_num,
-            'line': line.strip()[:200]
+            'line': stripped
         })
     
     return anomalies
@@ -116,9 +157,17 @@ def analyze_file(filepath):
         return {'error': f'Ошибка при чтении файла: {e}'}
     
     all_anomalies = []
+    seen_lines = set()  # Для удаления дубликатов
+    
     for line_num, line in enumerate(lines, 1):
         anomalies = find_anomalies_in_line(line, line_num)
-        all_anomalies.extend(anomalies)
+        
+        # Убираем дубликаты - если для этой строки уже есть аномалия, берем только первую
+        for anomaly in anomalies:
+            line_key = (line_num, anomaly['type'])
+            if line_key not in seen_lines:
+                seen_lines.add(line_key)
+                all_anomalies.append(anomaly)
     
     return {
         'total_lines': len(lines),
@@ -127,7 +176,9 @@ def analyze_file(filepath):
 
 def main():
     script_dir = Path(__file__).parent
-    txt_files = list(script_dir.glob('*.txt'))
+    # Файлы с текстами находятся в папке texts/ на уровень выше
+    texts_dir = script_dir.parent / 'texts'
+    txt_files = list(texts_dir.glob('*.txt'))
     
     if not txt_files:
         print("Не найдено .txt файлов в директории")
@@ -160,15 +211,20 @@ def main():
                     by_type[a_type] = []
                 by_type[a_type].append(anomaly)
             
-            for a_type, type_anomalies in by_type.items():
+            for a_type, type_anomalies in sorted(by_type.items()):
                 print(f"\n   Тип аномалии: {a_type} ({len(type_anomalies)} случаев)")
                 
-                # Показываем первые 5 примеров каждого типа
-                for anomaly in type_anomalies[:5]:
-                    print(f"      Строка {anomaly['line_num']}: {anomaly['line'][:100]}...")
+                # Показываем первые 3 примера каждого типа с полным текстом
+                for anomaly in type_anomalies[:3]:
+                    line_text = anomaly['line']
+                    # Ограничиваем вывод до 500 символов, но показываем больше
+                    if len(line_text) > 500:
+                        print(f"      Строка {anomaly['line_num']}: {line_text[:500]}...")
+                    else:
+                        print(f"      Строка {anomaly['line_num']}: {line_text}")
                 
-                if len(type_anomalies) > 5:
-                    print(f"      ... и еще {len(type_anomalies) - 5} случаев")
+                if len(type_anomalies) > 3:
+                    print(f"      ... и еще {len(type_anomalies) - 3} случаев")
         
         # Показываем прогресс для файлов без аномалий
         # (раскомментируйте, если хотите видеть все файлы)
@@ -178,7 +234,7 @@ def main():
     print("\n" + "=" * 80)
     print(f"\nИтого: найдено {len(files_with_anomalies)} файлов с аномалиями из {len(txt_files)} проверенных")
     
-    # Сохраняем детальный отчет в файл
+    # Сохраняем детальный отчет в файл (в папку scripts/)
     report_file = script_dir / 'anomalies_report.txt'
     with open(report_file, 'w', encoding='utf-8') as f:
         f.write("ОТЧЕТ ОБ АНОМАЛИЯХ В ТЕКСТОВЫХ ФАЙЛАХ\n")
@@ -197,7 +253,7 @@ def main():
                     by_type[a_type] = []
                 by_type[a_type].append(anomaly)
             
-            for a_type, type_anomalies in by_type.items():
+            for a_type, type_anomalies in sorted(by_type.items()):
                 f.write(f"\nТип: {a_type} ({len(type_anomalies)} случаев)\n")
                 f.write("-" * 80 + "\n")
                 
@@ -212,5 +268,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
